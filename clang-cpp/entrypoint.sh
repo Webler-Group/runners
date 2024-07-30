@@ -2,6 +2,7 @@
 
 source=$1
 input=$2
+runtime=$3
 
 echo "$source" > main.cpp
 
@@ -12,7 +13,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-echo "$input" | ./a.out 1> out_file 2> err_file
+echo "$input" | timeout $runtime ./a.out 1> out_file 2> err_file
 
 if [ $? -ne 0 ]; then
   cat err_file >&2
