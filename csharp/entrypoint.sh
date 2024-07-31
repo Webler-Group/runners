@@ -2,9 +2,9 @@
 
 set -e
 
-source=$1
+source=$3
 input=$2
-exectime=$3
+exectime=$1
 
 echo "$source" > Main.cs
 
